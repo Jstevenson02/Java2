@@ -6,13 +6,13 @@ public class MyStringBuilder {
 	}
 
 	public MyStringBuilder append(MyStringBuilder s) {
-		String newStr  = this.s; 
+		String newStr = this.s;
 		newStr += s;
 		return new MyStringBuilder(newStr);
 	}
 
 	public MyStringBuilder append(int i) {
-		String newStr  = this.s; 
+		String newStr = this.s;
 		newStr += i + "";
 		return new MyStringBuilder(newStr);
 	}
@@ -37,7 +37,7 @@ public class MyStringBuilder {
 
 	public MyStringBuilder substring(int begin, int end) {
 		String newStr = "";
-		for (int i = begin; i < end; i ++) {
+		for (int i = begin; i < end; i++) {
 			newStr += s.charAt(i) + "";
 		}
 		return new MyStringBuilder(newStr);

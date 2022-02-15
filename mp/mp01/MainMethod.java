@@ -69,7 +69,7 @@ public class MainMethod {
 		System.out.println("_________MyStringBuilder Method_________");
 		System.out.println("\n");
 
-		MyStringBuilder str1 = new MyStringBuilder("TEST");
+		MyStringBuilder str1 = new MyStringBuilder("IAMAPPENDEDTO");
 
 		System.out.println("\nAppend the string \" MyStringBuilder\" to string: " + 
 			str1.append(new MyStringBuilder(" MyStringBuilder")));
