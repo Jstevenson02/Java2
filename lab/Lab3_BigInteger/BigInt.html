@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>ATM.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+pre {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+table {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+.string {color: #e2ce00}
+.ST2 {color: #e2ce00; font-family: Monospaced; font-weight: bold}
+.number {color: #eddd3d}
+.ST1 {color: #098a18}
+.literal {color: #f8bb00}
+.ST0 {color: #ec8e01}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">C:\Users\jacob\Documents\School\Java2\lab\Lab2\ATMSimulation\src\atmsimulation\ATM.java</td></tr></table>
+<pre>
+<span class="literal">import</span> java.math.BigInteger;
+
+<span class="literal">public</span> <span class="literal">class</span> BigInt {
+
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">int</span> factorial(<span class="literal">int</span> <span class="ST0">number</span>) {
+        <span class="literal">if</span> (<span class="ST0">number</span> == <span class="number">1</span> || <span class="ST0">number</span> == <span class="number">0</span>)
+            <span class="literal">return</span> <span class="number">1</span>;
+        <span class="literal">int</span> fact = <span class="number">1</span>;
+        <span class="literal">for</span> (<span class="literal">int</span> i = <span class="ST0">number</span>; i &gt; <span class="number">1</span>; --i) {
+            fact *= i;
+        }
+        <span class="literal">return</span> fact;
+    }
+
+    <span class="literal">public</span> <span class="literal">static</span> BigInteger factorial(BigInteger <span class="ST0">number</span>) {
+        <span class="literal">if</span> (<span class="ST0">number</span>.compareTo(BigInteger.<span class="ST1">ONE</span>) == <span class="number">0</span> ||
+                <span class="ST0">number</span>.compareTo(BigInteger.<span class="ST1">ZERO</span>) == <span class="number">0</span>)
+            <span class="literal">return</span> BigInteger.<span class="ST1">ONE</span>;
+        BigInteger fact = BigInteger.<span class="ST1">ONE</span>;
+        <span class="literal">for</span> (BigInteger i = <span class="ST0">number</span>; i.compareTo(BigInteger.<span class="ST1">ONE</span>) &gt; <span class="number">0</span>; i = i.subtract(BigInteger.<span class="ST1">ONE</span>))
+            fact = fact.multiply(i);
+        <span class="literal">return</span> fact;
+    }
+
+    <span class="literal">public</span> <span class="literal">static</span> BigInteger[][] addMatrices(BigInteger[][] <span class="ST0">m1</span>, BigInteger[][] <span class="ST0">m2</span>) {
+
+        BigInteger[][] result = <span class="literal">new</span> BigInteger[<span class="ST0">m1</span>.<span class="ST1">length</span>][<span class="ST0">m1</span>[<span class="number">0</span>].<span class="ST1">length</span>];
+
+        <span class="literal">for</span> (<span class="literal">int</span> i = <span class="number">0</span>; i &lt; result.<span class="ST1">length</span>; i++) {
+            <span class="literal">for</span> (<span class="literal">int</span> j = <span class="number">0</span>; j &lt; result[i].<span class="ST1">length</span>; j++) {
+                result[i][j] = <span class="ST0">m1</span>[i][j].add(<span class="ST0">m2</span>[i][j]);
+            }
+        }
+        <span class="literal">return</span> result;
+    }
+
+    <span class="literal">public</span> <span class="literal">static</span> BigInteger[][] multiplyMatrices(BigInteger[][] <span class="ST0">m1</span>, BigInteger[][] <span class="ST0">m2</span>) {
+
+        BigInteger[][] result2 = <span class="literal">new</span> BigInteger[<span class="ST0">m1</span>.<span class="ST1">length</span>][<span class="ST0">m1</span>[<span class="number">0</span>].<span class="ST1">length</span>];
+
+        <span class="literal">for</span> (<span class="literal">int</span> i = <span class="number">0</span>; i &lt; result2.<span class="ST1">length</span>; i++) {
+            <span class="literal">for</span> (<span class="literal">int</span> j = <span class="number">0</span>; j &lt; result2[i].<span class="ST1">length</span>; j++) {
+                result2[i][j] = <span class="ST0">m1</span>[i][j].multiply(<span class="ST0">m2</span>[i][j]);
+            }
+        }
+        <span class="literal">return</span>  result2;
+    }
+
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> main(String[] <span class="ST0">args</span>) {
+        BigInteger[] ar1 = <span class="literal">new</span> BigInteger[] { <span class="literal">new</span> BigInteger(<span class="string">&quot;</span><span class="string">1</span><span class="string">&quot;</span>), <span class="literal">new</span> BigInteger(<span class="string">&quot;</span><span class="string">3</span><span class="string">&quot;</span>) };
+        BigInteger[] ar2 = <span class="literal">new</span> BigInteger[] { <span class="literal">new</span> BigInteger(<span class="string">&quot;</span><span class="string">2</span><span class="string">&quot;</span>), <span class="literal">new</span> BigInteger(<span class="string">&quot;</span><span class="string">4</span><span class="string">&quot;</span>) };
+
+        BigInteger[] ar3 = <span class="literal">new</span> BigInteger[] { <span class="literal">new</span> BigInteger(<span class="string">&quot;</span><span class="string">5</span><span class="string">&quot;</span>), <span class="literal">new</span> BigInteger(<span class="string">&quot;</span><span class="string">7</span><span class="string">&quot;</span>) };
+        BigInteger[] ar4 = <span class="literal">new</span> BigInteger[] { <span class="literal">new</span> BigInteger(<span class="string">&quot;</span><span class="string">6</span><span class="string">&quot;</span>), <span class="literal">new</span> BigInteger(<span class="string">&quot;</span><span class="string">8</span><span class="string">&quot;</span>) };
+
+        BigInteger[][] ar5 = <span class="literal">new</span> BigInteger[][] { ar1, ar2 };
+        BigInteger[][] ar6 = <span class="literal">new</span> BigInteger[][] { ar3, ar4 };
+        
+        BigInteger[][] output2 = multiplyMatrices(ar5, ar6);
+        BigInteger[][] output = addMatrices(ar5, ar6);
+
+        <span class="literal">for</span> (<span class="literal">int</span> i = <span class="number">0</span>; i &lt; output.<span class="ST1">length</span>; i++) {
+            <span class="literal">for</span> (BigInteger[] ar : output) {
+                System.<span class="ST1">out</span>.print(ar[i].toString() + <span class="string">&quot;</span> <span class="string">&quot;</span>);
+            }
+            System.<span class="ST1">out</span>.print(<span class="string">&quot;</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+        }
+
+        System.<span class="ST1">out</span>.print(<span class="string">&quot;</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+        
+        <span class="literal">for</span> (<span class="literal">int</span> i = <span class="number">0</span>; i &lt; output2.<span class="ST1">length</span>; i++) {
+            <span class="literal">for</span> (BigInteger[] ar : output2) {
+                System.<span class="ST1">out</span>.print(ar[i].toString() + <span class="string">&quot;</span> <span class="string">&quot;</span>);
+            }
+            System.<span class="ST1">out</span>.print(<span class="string">&quot;</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+        }
+    }
+}
+</pre></body>
+</html>

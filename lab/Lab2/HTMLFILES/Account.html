@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Account.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+pre {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+table {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+.number {color: #eddd3d}
+.ST0 {color: #098a18}
+.literal {color: #f8bb00}
+.ST3 {color: #428bdd; font-family: Monospaced; font-weight: bold}
+.ST1 {color: #ec8e01}
+.ST2 {color: #428bdd; font-family: Monospaced; font-style: italic}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">C:\Users\jacob\Documents\School\Java2\lab\Lab2\ATMSimulation\src\atmsimulation\Account.java</td></tr></table>
+<pre>
+<span class="literal">package</span> src;
+
+<span class="literal">import</span> java.util.Date;
+
+<span class="literal">public</span> <span class="literal">class</span> Account {
+        <span class="literal">private</span> <span class="literal">int</span> <span class="ST0">id</span>;
+        <span class="literal">private</span> <span class="literal">double</span> <span class="ST0">balance</span>;
+        <span class="literal">private</span> <span class="literal">static</span> <span class="literal">double</span> <span class="ST0">annualInterestRate</span>;
+        <span class="literal">private</span> Date <span class="ST0">dateCreated</span>;
+
+        Account() {
+                <span class="ST0">id</span> = <span class="number">0</span>;
+                <span class="ST0">balance</span> = <span class="number">0</span>;
+                <span class="ST0">annualInterestRate</span> = <span class="number">0</span>;
+                <span class="ST0">dateCreated</span> = <span class="literal">new</span> Date();
+        }
+
+        Account(<span class="literal">int</span> <span class="ST1">newId</span>, <span class="literal">double</span> <span class="ST1">newBalance</span>) {
+                <span class="ST0">id</span> = <span class="ST1">newId</span>;
+                <span class="ST0">balance</span> = <span class="ST1">newBalance</span>;
+                <span class="ST0">dateCreated</span> = <span class="literal">new</span> Date();
+        }
+
+        
+        <span class="ST2">/**</span> 
+<span class="ST2">         * </span><span class="ST3">@param</span> <span class="ST2">newId</span>
+         <span class="ST2">*/</span>
+        <span class="literal">public</span> <span class="literal">void</span> setId(<span class="literal">int</span> <span class="ST1">newId</span>) {
+                <span class="ST0">id</span> = <span class="ST1">newId</span>;
+        }
+
+        
+        <span class="ST2">/**</span> 
+<span class="ST2">         * </span><span class="ST3">@param</span> <span class="ST2">newBalance</span>
+         <span class="ST2">*/</span>
+        <span class="literal">public</span> <span class="literal">void</span> setBalance(<span class="literal">double</span> <span class="ST1">newBalance</span>) {
+                <span class="ST0">balance</span> = <span class="ST1">newBalance</span>;
+        }
+
+        
+        <span class="ST2">/**</span> 
+<span class="ST2">         * </span><span class="ST3">@param</span> <span class="ST2">newAnnualInterestRate</span>
+         <span class="ST2">*/</span>
+        <span class="literal">public</span> <span class="literal">void</span> setAnnualInterestRate(<span class="literal">double</span> <span class="ST1">newAnnualInterestRate</span>) {
+                <span class="ST0">annualInterestRate</span> = <span class="ST1">newAnnualInterestRate</span>;
+        }
+
+        
+        <span class="ST2">/**</span> 
+<span class="ST2">         * </span><span class="ST3">@return</span> <span class="ST2">int</span>
+         <span class="ST2">*/</span>
+        <span class="literal">public</span> <span class="literal">int</span> getId() {
+                <span class="literal">return</span> <span class="ST0">id</span>;
+        }
+
+        
+        <span class="ST2">/**</span> 
+<span class="ST2">         * </span><span class="ST3">@return</span> <span class="ST2">double</span>
+         <span class="ST2">*/</span>
+        <span class="literal">public</span> <span class="literal">double</span> getBalance() {
+                <span class="literal">return</span> <span class="ST0">balance</span>;
+        }
+
+        
+        <span class="ST2">/**</span> 
+<span class="ST2">         * </span><span class="ST3">@return</span> <span class="ST2">double</span>
+         <span class="ST2">*/</span>
+        <span class="literal">public</span> <span class="literal">double</span> getAnnualInterestRate() {
+                <span class="literal">return</span> <span class="ST0">annualInterestRate</span>;
+        }
+
+        
+        <span class="ST2">/**</span> 
+<span class="ST2">         * </span><span class="ST3">@return</span> <span class="ST2">String</span>
+         <span class="ST2">*/</span>
+        <span class="literal">public</span> String getDateCreated() {
+                <span class="literal">return</span> <span class="ST0">dateCreated</span>.toString();
+        }
+
+        
+        <span class="ST2">/**</span> 
+<span class="ST2">         * </span><span class="ST3">@return</span> <span class="ST2">double</span>
+         <span class="ST2">*/</span>
+        <span class="literal">public</span> <span class="literal">double</span> getMonthlyInterestRate() {
+                <span class="literal">return</span> <span class="ST0">annualInterestRate</span> / <span class="number">12</span>;
+        }
+
+        
+        <span class="ST2">/**</span> 
+<span class="ST2">         * </span><span class="ST3">@return</span> <span class="ST2">double</span>
+         <span class="ST2">*/</span>
+        <span class="literal">public</span> <span class="literal">double</span> getMonthlyInterest() {
+                <span class="literal">return</span> <span class="ST0">balance</span> * (getMonthlyInterestRate() / <span class="number">100</span>);
+        }
+
+        
+        <span class="ST2">/**</span> 
+<span class="ST2">         * </span><span class="ST3">@param</span> <span class="ST2">amount</span>
+         <span class="ST2">*/</span>
+        <span class="literal">public</span> <span class="literal">void</span> withdraw(<span class="literal">double</span> <span class="ST1">amount</span>) {
+                <span class="ST0">balance</span> -= <span class="ST1">amount</span>;
+        }
+
+        
+        <span class="ST2">/**</span> 
+<span class="ST2">         * </span><span class="ST3">@param</span> <span class="ST2">amount</span>
+         <span class="ST2">*/</span>
+        <span class="literal">public</span> <span class="literal">void</span> deposit(<span class="literal">double</span> <span class="ST1">amount</span>) {
+                <span class="ST0">balance</span> += <span class="ST1">amount</span>;
+        }
+}
+</pre></body>
+</html>

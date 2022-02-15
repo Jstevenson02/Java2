@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>MyPoint.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+pre {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+table {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+.string {color: #e2ce00}
+.number {color: #eddd3d}
+.ST0 {color: #098a18}
+.literal {color: #f8bb00}
+.ST2 {color: #428bdd; font-family: Monospaced; font-weight: bold}
+.ST1 {color: #428bdd; font-family: Monospaced; font-style: italic}
+.ST3 {color: #ec8e01}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">C:\Users\jacob\Documents\School\Java2\Lab2\JavaDocProj\src\javadocproj\MyPoint.java</td></tr></table>
+<pre>
+<span class="literal">package</span> javadocproj;
+
+<span class="literal">public</span> <span class="literal">class</span> MyPoint {
+    <span class="literal">private</span> <span class="literal">double</span> <span class="ST0">x</span>;
+    <span class="literal">private</span> <span class="literal">double</span> <span class="ST0">y</span>;
+
+    
+    <span class="ST1">/**</span> 
+<span class="ST1">     * </span><span class="ST2">@param</span> <span class="ST1">args</span>
+     <span class="ST1">*/</span>
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> main(String[] <span class="ST3">args</span>) {
+        <span class="ST1">// Create two points</span>
+        MyPoint point1 = <span class="literal">new</span> MyPoint();
+        MyPoint point2 = <span class="literal">new</span> MyPoint(<span class="number">10</span>, <span class="number">30.5</span>);
+
+        <span class="ST1">// Display the distance between point1 and point2</span>
+        System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">The distance between (</span><span class="string">&quot;</span>
+                + point1.getX() + <span class="string">&quot;</span><span class="string">, </span><span class="string">&quot;</span> + point1.getY() + <span class="string">&quot;</span><span class="string">) and (</span><span class="string">&quot;</span>
+                + point2.getX() + <span class="string">&quot;</span><span class="string">, </span><span class="string">&quot;</span> + point2.getY() + <span class="string">&quot;</span><span class="string">) is: </span><span class="string">&quot;</span> +
+                point1.distance(point2));
+
+        System.<span class="ST0">out</span>.println(point1);
+
+        System.<span class="ST0">out</span>.println(point1.distance(point2));
+
+        System.<span class="ST0">out</span>.println(point1.distance(point2.getX(), point2.getY()));
+        
+        System.<span class="ST0">out</span>.println(point1.DistanceBetweenTwoPoints(point1, point2));
+
+        System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">Is Point1 the same as Point2: </span><span class="string">&quot;</span> + (point1 == point2));
+
+    }
+
+    <span class="literal">public</span> MyPoint() {
+        <span class="literal">this</span>(<span class="number">0</span>, <span class="number">0</span>);
+    }
+
+    <span class="literal">public</span> MyPoint(<span class="literal">double</span> <span class="ST3">x</span>, <span class="literal">double</span> <span class="ST3">y</span>) {
+        <span class="literal">this</span>.<span class="ST0">x</span> = <span class="ST3">x</span>;
+        <span class="literal">this</span>.<span class="ST0">y</span> = <span class="ST3">y</span>;
+    }
+
+    
+    <span class="ST1">/**</span> 
+<span class="ST1">     * </span><span class="ST2">@return</span> <span class="ST1">double</span>
+     <span class="ST1">*/</span>
+    <span class="literal">public</span> <span class="literal">double</span> getX() {
+        <span class="literal">return</span> <span class="ST0">x</span>;
+    }
+
+    
+    <span class="ST1">/**</span> 
+<span class="ST1">     * </span><span class="ST2">@return</span> <span class="ST1">double</span>
+     <span class="ST1">*/</span>
+    <span class="literal">public</span> <span class="literal">double</span> getY() {
+        <span class="literal">return</span> <span class="ST0">y</span>;
+    }
+
+    
+    <span class="ST1">/**</span> 
+<span class="ST1">     * </span><span class="ST2">@param</span> <span class="ST1">myPoint</span>
+<span class="ST1">     * </span><span class="ST2">@return</span> <span class="ST1">double</span>
+     <span class="ST1">*/</span>
+    <span class="literal">public</span> <span class="literal">double</span> distance(MyPoint <span class="ST3">myPoint</span>) {
+        <span class="literal">return</span> Math.sqrt(Math.pow(<span class="ST3">myPoint</span>.getX() - <span class="ST0">x</span>, <span class="number">2</span>) + Math.pow(<span class="ST3">myPoint</span>.getY() - <span class="ST0">y</span>, <span class="number">2</span>));
+    }
+
+    
+    <span class="ST1">/**</span> 
+<span class="ST1">     * </span><span class="ST2">@param</span> <span class="ST1">x</span>
+<span class="ST1">     * </span><span class="ST2">@param</span> <span class="ST1">y</span>
+<span class="ST1">     * </span><span class="ST2">@return</span> <span class="ST1">double</span>
+     <span class="ST1">*/</span>
+    <span class="literal">public</span> <span class="literal">double</span> distance(<span class="literal">double</span> <span class="ST3">x</span>, <span class="literal">double</span> <span class="ST3">y</span>) {
+        <span class="literal">return</span> distance(<span class="literal">new</span> MyPoint(<span class="ST3">x</span>, <span class="ST3">y</span>));
+    }
+
+    
+    <span class="ST1">/**</span> 
+<span class="ST1">     * </span><span class="ST2">@param</span> <span class="ST1">pointA</span>
+<span class="ST1">     * </span><span class="ST2">@param</span> <span class="ST1">pointB</span>
+<span class="ST1">     * </span><span class="ST2">@return</span> <span class="ST1">double</span>
+     <span class="ST1">*/</span>
+    <span class="literal">private</span> <span class="literal">double</span> DistanceBetweenTwoPoints(MyPoint <span class="ST3">pointA</span>, MyPoint <span class="ST3">pointB</span>) {
+        <span class="literal">return</span> Math.sqrt(Math.pow(<span class="ST3">pointA</span>.getX() - <span class="ST3">pointB</span>.getX(), <span class="number">2</span>) + Math.pow(<span class="ST3">pointA</span>.getY() - <span class="ST3">pointB</span>.getY(), <span class="number">2</span>));
+    }
+
+    
+    <span class="ST1">/**</span> 
+<span class="ST1">     * </span><span class="ST2">@return</span> <span class="ST1">String</span>
+     <span class="ST1">*/</span>
+    @Override
+    <span class="literal">public</span> String toString() {
+        <span class="literal">return</span> <span class="string">&quot;</span><span class="string">{</span><span class="string">&quot;</span> +
+                <span class="string">&quot;</span><span class="string"> x=&#39;</span><span class="string">&quot;</span> + getX() + <span class="string">&quot;</span><span class="string">&#39;</span><span class="string">&quot;</span> +
+                <span class="string">&quot;</span><span class="string">, y=&#39;</span><span class="string">&quot;</span> + getY() + <span class="string">&quot;</span><span class="string">&#39;</span><span class="string">&quot;</span> +
+                <span class="string">&quot;</span><span class="string">}</span><span class="string">&quot;</span>;
+    }
+
+    
+    <span class="ST1">/**</span> 
+<span class="ST1">     * </span><span class="ST2">@param</span> <span class="ST1">other</span>
+<span class="ST1">     * </span><span class="ST2">@return</span> <span class="ST1">boolean</span>
+     <span class="ST1">*/</span>
+    @Override
+    <span class="literal">public</span> <span class="literal">boolean</span> equals(Object <span class="ST3">other</span>) {
+        MyPoint otherPoint = (MyPoint) <span class="ST3">other</span>;
+        <span class="literal">return</span> <span class="literal">this</span>.getX() == otherPoint.getX() &amp;&amp; <span class="literal">this</span>.getY() == otherPoint.getY();
+    }
+}
+
+</pre></body>
+</html>

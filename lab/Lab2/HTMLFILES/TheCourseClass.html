@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>TheCourseClass.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+pre {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+table {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+.string {color: #e2ce00}
+.number {color: #eddd3d}
+.ST0 {color: #098a18}
+.literal {color: #f8bb00}
+.ST2 {color: #428bdd; font-family: Monospaced; font-weight: bold}
+.ST1 {color: #428bdd; font-family: Monospaced; font-style: italic}
+.ST3 {color: #ec8e01}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">C:\Users\jacob\Documents\School\Java2\Lab2\JavaDocProj\src\javadocproj\TheCourseClass.java</td></tr></table>
+<pre>
+<span class="literal">import</span> java.util.Objects;
+
+<span class="literal">public</span> <span class="literal">class</span> TheCourseClass {
+    String <span class="ST0">nameString</span>;
+    String[] <span class="ST0">studentStrings</span>;
+    <span class="literal">int</span> <span class="ST0">numberOfStudents</span>;
+    <span class="literal">final</span> <span class="literal">int</span> <span class="ST0">MAX_NUMBER_OF_STUDENTS</span> = <span class="number">25</span>;
+
+    
+    <span class="ST1">/**</span> 
+<span class="ST1">     * </span><span class="ST2">@return</span> <span class="ST1">String</span>
+     <span class="ST1">*/</span>
+    <span class="literal">public</span> String getNameString() {
+        <span class="literal">return</span> <span class="literal">this</span>.<span class="ST0">nameString</span>;
+    }
+
+
+    <span class="literal">public</span> String[] getStudentStrings() {
+        <span class="literal">return</span> <span class="literal">this</span>.<span class="ST0">studentStrings</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">int</span> getNumberOfStudents() {
+        <span class="literal">return</span> <span class="literal">this</span>.<span class="ST0">numberOfStudents</span>;
+    }
+
+
+    @Override
+    <span class="literal">public</span> String toString() {
+        String s = <span class="string">&quot;&quot;</span>;
+        <span class="literal">for</span> (<span class="literal">int</span> i = <span class="number">0</span>; i &lt; <span class="literal">this</span>.<span class="ST0">numberOfStudents</span>; ++i) {
+            s += <span class="literal">this</span>.<span class="ST0">studentStrings</span>[i] + <span class="string">&quot;</span> <span class="string">&quot;</span>;
+        }
+        <span class="literal">return</span> <span class="string">&quot;</span><span class="string">{</span><span class="string">&quot;</span> +
+                <span class="string">&quot;</span><span class="string"> nameString=&#39;</span><span class="string">&quot;</span> + getNameString() + <span class="string">&quot;</span><span class="string">&#39;</span><span class="string">&quot;</span> +
+                <span class="string">&quot;</span><span class="string">, studentStrings=&#39;</span><span class="string">&quot;</span> + s + <span class="string">&quot;</span><span class="string">&#39;</span><span class="string">&quot;</span> +
+                <span class="string">&quot;</span><span class="string">, numberOfStudents=&#39;</span><span class="string">&quot;</span> + getNumberOfStudents() + <span class="string">&quot;</span><span class="string">&#39;</span><span class="string">&quot;</span> +
+                <span class="string">&quot;</span><span class="string">}</span><span class="string">&quot;</span>;
+    }
+
+
+    @Override
+    <span class="literal">public</span> <span class="literal">boolean</span> equals(Object <span class="ST3">o</span>) {
+        <span class="literal">if</span> (<span class="ST3">o</span> == <span class="literal">this</span>)
+            <span class="literal">return</span> <span class="literal">true</span>;
+        <span class="literal">if</span> (!(<span class="ST3">o</span> <span class="literal">instanceof</span> TheCourseClass)) {
+            <span class="literal">return</span> <span class="literal">false</span>;
+        }
+        TheCourseClass theCourseClass = (TheCourseClass) <span class="ST3">o</span>;
+        <span class="literal">return</span> Objects.equals(<span class="ST0">nameString</span>, theCourseClass.<span class="ST0">nameString</span>)
+                &amp;&amp; Objects.equals(<span class="ST0">studentStrings</span>, theCourseClass.<span class="ST0">studentStrings</span>)
+                &amp;&amp; <span class="ST0">numberOfStudents</span> == theCourseClass.<span class="ST0">numberOfStudents</span>;
+    }
+
+    <span class="literal">public</span> TheCourseClass(String <span class="ST3">nameString</span>) {
+        <span class="ST0">studentStrings</span> = <span class="literal">new</span> String[<span class="ST0">MAX_NUMBER_OF_STUDENTS</span>];
+        <span class="literal">this</span>.<span class="ST0">nameString</span> = <span class="ST3">nameString</span>;
+    }
+
+    
+    <span class="ST1">/**</span> 
+<span class="ST1">     * </span><span class="ST2">@param</span> <span class="ST1">studentString</span>
+     <span class="ST1">*/</span>
+    <span class="literal">public</span> <span class="literal">void</span> addStudent(String <span class="ST3">studentString</span>) {
+        <span class="literal">this</span>.<span class="ST0">studentStrings</span>[<span class="literal">this</span>.<span class="ST0">numberOfStudents</span>++] = <span class="ST3">studentString</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">void</span> dropStudent(String <span class="ST3">student</span>) {
+
+        <span class="literal">int</span> index = -<span class="number">1</span>;
+
+        <span class="literal">if</span> ((index = findStudent(<span class="ST3">student</span>)) != -<span class="number">1</span>) {
+
+            <span class="literal">for</span> (<span class="literal">int</span> i = index; i &lt; <span class="literal">this</span>.<span class="ST0">studentStrings</span>.<span class="ST0">length</span> - <span class="number">1</span>; ++i) 
+            {
+                <span class="literal">this</span>.<span class="ST0">studentStrings</span>[i] = <span class="literal">this</span>.<span class="ST0">studentStrings</span>[i + <span class="number">1</span>];
+            }
+
+            <span class="literal">this</span>.<span class="ST0">numberOfStudents</span>--;
+        }
+    }
+    
+    <span class="literal">private</span> <span class="literal">int</span> findStudent(String <span class="ST3">studentString</span>) 
+    {
+
+        <span class="literal">for</span> (<span class="literal">int</span> i = <span class="number">0</span>; i &lt; <span class="literal">this</span>.<span class="ST0">numberOfStudents</span>; ++i) 
+        {
+            <span class="literal">if</span> (<span class="literal">this</span>.<span class="ST0">studentStrings</span>[i] == <span class="ST3">studentString</span>) {
+                <span class="literal">return</span> i;
+            }
+        }
+        <span class="literal">return</span> -<span class="number">1</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> main(String[] <span class="ST3">args</span>) {
+        TheCourseClass c1 = <span class="literal">new</span> TheCourseClass(<span class="string">&quot;</span><span class="string">ASDV 2420</span><span class="string">&quot;</span>);
+        System.<span class="ST0">out</span>.println(c1);
+        c1.addStudent(<span class="string">&quot;</span><span class="string">James Woods</span><span class="string">&quot;</span>);
+        c1.addStudent(<span class="string">&quot;</span><span class="string">Al Pacino</span><span class="string">&quot;</span>);
+        c1.addStudent(<span class="string">&quot;</span><span class="string">Mary Poppins</span><span class="string">&quot;</span>);
+        c1.addStudent(<span class="string">&quot;</span><span class="string">Robert DeNiro</span><span class="string">&quot;</span>);
+        System.<span class="ST0">out</span>.println(c1);
+        c1.dropStudent(<span class="string">&quot;</span><span class="string">Al Pacino</span><span class="string">&quot;</span>);
+        System.<span class="ST0">out</span>.println(c1);
+        c1.dropStudent(<span class="string">&quot;</span><span class="string">Robert DeNiro</span><span class="string">&quot;</span>);
+        System.<span class="ST0">out</span>.println(c1);
+        c1.dropStudent(<span class="string">&quot;</span><span class="string">Mary Poppins</span><span class="string">&quot;</span>);
+        System.<span class="ST0">out</span>.println(c1);
+        c1.addStudent(<span class="string">&quot;</span><span class="string">John Wayne</span><span class="string">&quot;</span>);
+        System.<span class="ST0">out</span>.println(c1);
+    }
+}
+</pre></body>
+</html>

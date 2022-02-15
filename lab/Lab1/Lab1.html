@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>JavaApplication7.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+pre {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+table {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+.string {color: #e2ce00}
+.number {color: #eddd3d}
+.ST0 {color: #098a18}
+.literal {color: #f8bb00}
+.ST1 {color: #ec8e01}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">C:\Users\jacob\Documents\NetBeansProjects\JavaApplication7\src\javaapplication7\JavaApplication7.java</td></tr></table>
+<pre>
+<span class="literal">import</span> java.util.Scanner;
+
+<span class="literal">public</span> <span class="literal">class</span> LinearEquation {
+
+    <span class="literal">private</span> <span class="literal">static</span> Scanner <span class="ST0">input</span> = <span class="literal">new</span> Scanner(System.<span class="ST0">in</span>);
+
+    <span class="literal">private</span> <span class="literal">double</span> <span class="ST0">a</span>;
+    <span class="literal">private</span> <span class="literal">double</span> <span class="ST0">b</span>;
+    <span class="literal">private</span> <span class="literal">double</span> <span class="ST0">c</span>;
+    <span class="literal">private</span> <span class="literal">double</span> <span class="ST0">d</span>;
+    <span class="literal">private</span> <span class="literal">double</span> <span class="ST0">e</span>;
+    <span class="literal">private</span> <span class="literal">double</span> <span class="ST0">f</span>;
+
+    <span class="literal">public</span> LinearEquation(<span class="literal">double</span> <span class="ST1">a</span>, <span class="literal">double</span> <span class="ST1">b</span>, <span class="literal">double</span> <span class="ST1">c</span>, <span class="literal">double</span> <span class="ST1">d</span>, <span class="literal">double</span> <span class="ST1">e</span>, <span class="literal">double</span> <span class="ST1">f</span>) {
+        <span class="literal">this</span>.<span class="ST0">a</span> = <span class="ST1">a</span>;
+        <span class="literal">this</span>.<span class="ST0">b</span> = <span class="ST1">b</span>;
+        <span class="literal">this</span>.<span class="ST0">c</span> = <span class="ST1">c</span>;
+        <span class="literal">this</span>.<span class="ST0">d</span> = <span class="ST1">d</span>;
+        <span class="literal">this</span>.<span class="ST0">e</span> = <span class="ST1">e</span>;
+        <span class="literal">this</span>.<span class="ST0">f</span> = <span class="ST1">f</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">double</span> getE() {
+        <span class="literal">return</span> <span class="literal">this</span>.<span class="ST0">e</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">double</span> getF() {
+        <span class="literal">return</span> <span class="literal">this</span>.<span class="ST0">f</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">double</span> getA() {
+        <span class="literal">return</span> <span class="literal">this</span>.<span class="ST0">a</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">double</span> getB() {
+        <span class="literal">return</span> <span class="literal">this</span>.<span class="ST0">b</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">double</span> getC() {
+        <span class="literal">return</span> <span class="literal">this</span>.<span class="ST0">c</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">double</span> getD() {
+        <span class="literal">return</span> <span class="literal">this</span>.<span class="ST0">d</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">double</span> getX() {
+        <span class="literal">return</span> ((<span class="ST0">e</span> * <span class="ST0">d</span>) - (<span class="ST0">b</span> * <span class="ST0">f</span>) / (<span class="ST0">a</span> * <span class="ST0">d</span>) - (<span class="ST0">b</span> * <span class="ST0">c</span>));
+    }
+
+    <span class="literal">public</span> <span class="literal">double</span> getY() {
+        <span class="literal">return</span> ((<span class="ST0">a</span> * <span class="ST0">f</span>) - (<span class="ST0">e</span> * <span class="ST0">c</span>) / (<span class="ST0">a</span> * <span class="ST0">d</span>) - (<span class="ST0">b</span> * <span class="ST0">c</span>));
+    }
+
+    <span class="literal">public</span> <span class="literal">boolean</span> isSolvable() {
+        <span class="literal">if</span> (<span class="ST0">a</span> * <span class="ST0">d</span> - <span class="ST0">b</span> * <span class="ST0">c</span> != <span class="number">0</span>)
+            <span class="literal">return</span> <span class="literal">true</span>;
+        <span class="literal">else</span>
+            <span class="literal">return</span> <span class="literal">false</span>;
+    }
+
+    <span class="literal">public</span> LinearEquation a(<span class="literal">double</span> <span class="ST1">a</span>) {
+        <span class="literal">return</span> <span class="literal">this</span>;
+    }
+
+    <span class="literal">public</span> LinearEquation b(<span class="literal">double</span> <span class="ST1">b</span>) {
+        <span class="literal">return</span> <span class="literal">this</span>;
+    }
+
+    <span class="literal">public</span> LinearEquation c(<span class="literal">double</span> <span class="ST1">c</span>) {
+        <span class="literal">return</span> <span class="literal">this</span>;
+    }
+
+    <span class="literal">public</span> LinearEquation d(<span class="literal">double</span> <span class="ST1">d</span>) {
+        <span class="literal">return</span> <span class="literal">this</span>;
+    }
+
+    @Override
+    <span class="literal">public</span> <span class="literal">boolean</span> equals(Object <span class="ST1">o</span>) {
+        <span class="literal">if</span> (<span class="ST1">o</span> == <span class="literal">this</span>)
+            <span class="literal">return</span> <span class="literal">true</span>;
+        <span class="literal">if</span> (!(<span class="ST1">o</span> <span class="literal">instanceof</span> LinearEquation)) {
+            <span class="literal">return</span> <span class="literal">false</span>;
+        }
+        LinearEquation linearEquation = (LinearEquation) <span class="ST1">o</span>;
+        <span class="literal">return</span> <span class="ST0">a</span> == linearEquation.<span class="ST0">a</span> &amp;&amp; <span class="ST0">b</span> == linearEquation.<span class="ST0">b</span> &amp;&amp; <span class="ST0">c</span> == linearEquation.<span class="ST0">c</span> &amp;&amp; <span class="ST0">d</span> == linearEquation.<span class="ST0">d</span>;
+    }
+
+    @Override
+    <span class="literal">public</span> String toString() {
+        <span class="literal">return</span> <span class="string">&quot;</span><span class="string">{</span><span class="string">&quot;</span> +
+                <span class="string">&quot;</span><span class="string"> a=&#39;</span><span class="string">&quot;</span> + getA() + <span class="string">&quot;</span><span class="string">&#39;</span><span class="string">&quot;</span> +
+                <span class="string">&quot;</span><span class="string">, b=&#39;</span><span class="string">&quot;</span> + getB() + <span class="string">&quot;</span><span class="string">&#39;</span><span class="string">&quot;</span> +
+                <span class="string">&quot;</span><span class="string">, c=&#39;</span><span class="string">&quot;</span> + getC() + <span class="string">&quot;</span><span class="string">&#39;</span><span class="string">&quot;</span> +
+                <span class="string">&quot;</span><span class="string">, d=&#39;</span><span class="string">&quot;</span> + getD() + <span class="string">&quot;</span><span class="string">&#39;</span><span class="string">&quot;</span> +
+                <span class="string">&quot;</span><span class="string">}</span><span class="string">&quot;</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">static</span> LinearEquation readEquation() {
+        System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">Enter a, b, c, d, e, f:</span><span class="string">&quot;</span>);
+
+        LinearEquation le = <span class="literal">new</span> LinearEquation(<span class="ST0">input</span>.nextDouble(),
+                <span class="ST0">input</span>.nextDouble(),
+                <span class="ST0">input</span>.nextDouble(),
+                <span class="ST0">input</span>.nextDouble(),
+                <span class="ST0">input</span>.nextDouble(),
+                <span class="ST0">input</span>.nextDouble());
+        <span class="literal">return</span> le;
+    }
+
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> printaAlllEquations(LinearEquation[] <span class="ST1">le</span>) {
+        <span class="literal">for</span> (LinearEquation e : <span class="ST1">le</span>) {
+            System.<span class="ST0">out</span>.println(e);
+        }
+    }
+
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">boolean</span> linesIntersect(LinearEquation[] <span class="ST1">equations</span>) {
+
+        <span class="literal">if</span> (<span class="ST1">equations</span>[<span class="number">0</span>].getX() == <span class="ST1">equations</span>[<span class="number">1</span>].getX() &amp;&amp; <span class="ST1">equations</span>[<span class="number">1</span>].getX() == <span class="ST1">equations</span>[<span class="number">2</span>].getX()) {
+            <span class="literal">return</span> <span class="literal">true</span>;
+        }
+        <span class="literal">if</span> (<span class="ST1">equations</span>[<span class="number">0</span>].getY() == <span class="ST1">equations</span>[<span class="number">1</span>].getY() &amp;&amp; <span class="ST1">equations</span>[<span class="number">1</span>].getY() == <span class="ST1">equations</span>[<span class="number">2</span>].getY()) {
+            <span class="literal">return</span> <span class="literal">true</span>;
+        }
+        <span class="literal">return</span> <span class="literal">false</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> main(String[] <span class="ST1">args</span>) {
+
+        LinearEquation[] ar = <span class="literal">new</span> LinearEquation[<span class="number">3</span>];
+        System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">Enter 3 linear equations: </span><span class="string">&quot;</span>);
+        <span class="literal">for</span> (<span class="literal">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) {
+            ar[i] = LinearEquation.readEquation();
+        }
+
+        printAllEquations(ar);
+
+        <span class="literal">if</span> (linesIntersect(ar))
+            System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">There is a solution, all lines intesect at same point </span><span class="string">&quot;</span> +
+                    <span class="string">&quot;</span><span class="string"> X: </span><span class="string">&quot;</span> + ar[<span class="number">0</span>].getX() +
+                    <span class="string">&quot;</span><span class="string"> Y: </span><span class="string">&quot;</span> + ar[<span class="number">0</span>].getY());
+
+        <span class="literal">else</span>
+            System.<span class="ST0">out</span>.println(<span class="string">&quot;</span><span class="string">No solution!</span><span class="string">&quot;</span>);
+    }
+
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> printAllEquations(LinearEquation[] <span class="ST1">ar</span>) {
+        <span class="literal">for</span> (LinearEquation e : <span class="ST1">ar</span>)
+            System.<span class="ST0">out</span>.println(e);
+    }
+}
+</pre></body>
+</html>

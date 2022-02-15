@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>ATM.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+pre {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+table {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+.string {color: #e2ce00}
+.ST4 {color: #e2ce00; font-family: Monospaced; font-weight: bold}
+.number {color: #eddd3d}
+.ST3 {color: #098a18}
+.literal {color: #f8bb00}
+.ST1 {color: #428bdd; font-family: Monospaced; font-weight: bold}
+.ST0 {color: #428bdd; font-family: Monospaced; font-style: italic}
+.ST2 {color: #ec8e01}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">C:\Users\jacob\Documents\School\Java2\lab\Lab2\ATMSimulation\src\atmsimulation\ATM.java</td></tr></table>
+<pre>
+<span class="literal">package</span> src;
+
+<span class="literal">import</span> java.util.Scanner;
+
+<span class="literal">public</span> <span class="literal">class</span> ATM {
+
+    
+    <span class="ST0">/**</span> 
+<span class="ST0">     * </span><span class="ST1">@param</span> <span class="ST0">args</span>
+     <span class="ST0">*/</span>
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> main(String[] <span class="ST2">args</span>) {
+        Scanner input = <span class="literal">new</span> Scanner(System.<span class="ST3">in</span>);
+
+        Account[] accounts = <span class="literal">new</span> Account[<span class="number">10</span>];
+
+        initialBalance(accounts);
+        <span class="literal">do</span> {
+            System.<span class="ST3">out</span>.print(<span class="string">&quot;</span><span class="string">Enter an id: </span><span class="string">&quot;</span>);
+            <span class="literal">int</span> id = input.nextInt();
+
+            <span class="literal">if</span> (isValidID(id, accounts)) {
+                <span class="literal">int</span> choice;
+                <span class="literal">do</span> {
+                    choice = displayMainMenu(input);
+                    <span class="literal">if</span> (isTransaction(choice)) {
+                        executeTransaction(choice, accounts, id, input);
+                    }
+                } <span class="literal">while</span> (choice != <span class="number">4</span> &amp;&amp; isValidID( id, accounts) == <span class="literal">true</span>); 
+            }
+        } <span class="literal">while</span> (<span class="literal">true</span>);
+    }
+
+    
+    <span class="ST0">/**</span> 
+<span class="ST0">     * </span><span class="ST1">@param</span> <span class="ST0">a</span>
+     <span class="ST0">*/</span>
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> initialBalance(Account[] <span class="ST2">a</span>) {
+        <span class="literal">int</span> initialBalance = <span class="number">100</span>;
+        <span class="literal">for</span> (<span class="literal">int</span> i = <span class="number">0</span>; i &lt; <span class="ST2">a</span>.<span class="ST3">length</span>; i++) {
+            <span class="ST2">a</span>[i] = <span class="literal">new</span> Account(i, initialBalance);
+        }
+    }
+
+    
+    <span class="ST0">/**</span> 
+<span class="ST0">     * </span><span class="ST1">@param</span> <span class="ST0">choice</span>
+<span class="ST0">     * </span><span class="ST1">@return</span> <span class="ST0">boolean</span>
+     <span class="ST0">*/</span>
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">boolean</span> isTransaction(<span class="literal">int</span> <span class="ST2">choice</span>) {
+        <span class="literal">return</span> <span class="ST2">choice</span> &gt; <span class="number">0</span> &amp;&amp; <span class="ST2">choice</span> &lt; <span class="number">4</span>;
+    }
+
+    
+    <span class="ST0">/**</span> 
+<span class="ST0">     * </span><span class="ST1">@param</span> <span class="ST0">id</span>
+<span class="ST0">     * </span><span class="ST1">@param</span> <span class="ST0">a</span>
+<span class="ST0">     * </span><span class="ST1">@return</span> <span class="ST0">boolean</span>
+     <span class="ST0">*/</span>
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">boolean</span> isValidID(<span class="literal">int</span> <span class="ST2">id</span>, Account[] <span class="ST2">a</span>) {
+        <span class="literal">for</span> (<span class="literal">int</span> i = <span class="number">0</span>; i &lt; <span class="ST2">a</span>.<span class="ST3">length</span>; i++) {
+            <span class="literal">if</span> (<span class="ST2">id</span> == <span class="ST2">a</span>[i].getId())
+                <span class="literal">return</span> <span class="literal">true</span>;
+        }
+        System.<span class="ST3">out</span>.println(<span class="string">&quot;</span><span class="ST4">\n</span><span class="string">Invalid ID, enter a valid ID.</span><span class="ST4">\n</span><span class="string">&quot;</span>);
+        <span class="literal">return</span> <span class="literal">false</span>;
+    }
+
+    
+    <span class="ST0">/**</span> 
+<span class="ST0">     * </span><span class="ST1">@param</span> <span class="ST0">input</span>
+<span class="ST0">     * </span><span class="ST1">@return</span> <span class="ST0">int</span>
+     <span class="ST0">*/</span>
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">int</span> displayMainMenu(Scanner <span class="ST2">input</span>) {
+        System.<span class="ST3">out</span>.print(
+                <span class="string">&quot;</span><span class="ST4">\n</span><span class="string">Main menu</span><span class="ST4">\n</span><span class="string">1: check balance</span><span class="ST4">\n</span><span class="string">2: withdraw</span><span class="string">&quot;</span> +
+                        <span class="string">&quot;</span><span class="ST4">\n</span><span class="string">3: deposit</span><span class="ST4">\n</span><span class="string">4: exit</span><span class="ST4">\n</span><span class="string">Enter a choice: </span><span class="string">&quot;</span>);
+        <span class="literal">return</span> <span class="ST2">input</span>.nextInt();
+    }
+
+    
+    <span class="ST0">/**</span> 
+<span class="ST0">     * </span><span class="ST1">@param</span> <span class="ST0">c</span>
+<span class="ST0">     * </span><span class="ST1">@param</span> <span class="ST0">a</span>
+<span class="ST0">     * </span><span class="ST1">@param</span> <span class="ST0">id</span>
+<span class="ST0">     * </span><span class="ST1">@param</span> <span class="ST0">input</span>
+     <span class="ST0">*/</span>
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> executeTransaction(
+            <span class="literal">int</span> <span class="ST2">c</span>, Account[] <span class="ST2">a</span>, <span class="literal">int</span> <span class="ST2">id</span>, Scanner <span class="ST2">input</span>) {
+        <span class="literal">switch</span> (<span class="ST2">c</span>) {
+            <span class="literal">case</span> <span class="number">1</span>:
+                System.<span class="ST3">out</span>.println(<span class="string">&quot;</span><span class="string">The balance is </span><span class="string">&quot;</span> + <span class="ST2">a</span>[<span class="ST2">id</span>].getBalance());
+                <span class="literal">break</span>;
+            <span class="literal">case</span> <span class="number">2</span>:
+                System.<span class="ST3">out</span>.print(<span class="string">&quot;</span><span class="string">Enter an amount to withdraw: </span><span class="string">&quot;</span>);
+                <span class="ST2">a</span>[<span class="ST2">id</span>].withdraw(<span class="ST2">input</span>.nextDouble());
+                <span class="literal">break</span>;
+            <span class="literal">case</span> <span class="number">3</span>:
+                System.<span class="ST3">out</span>.print(<span class="string">&quot;</span><span class="string">Enter an amount to deposit: </span><span class="string">&quot;</span>);
+                <span class="ST2">a</span>[<span class="ST2">id</span>].deposit(<span class="ST2">input</span>.nextDouble());
+        }
+    }
+}
+</pre></body>
+</html>

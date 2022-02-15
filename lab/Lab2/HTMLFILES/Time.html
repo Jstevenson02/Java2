@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Time.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+pre {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+table {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+.string {color: #e2ce00}
+.ST2 {color: #e2ce00; font-family: Monospaced; font-weight: bold}
+.number {color: #eddd3d}
+.ST1 {color: #098a18}
+.literal {color: #f8bb00}
+.ST4 {color: #428bdd; font-family: Monospaced; font-weight: bold}
+.ST0 {color: #ec8e01}
+.ST3 {color: #428bdd; font-family: Monospaced; font-style: italic}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">C:\Users\jacob\Documents\School\Java2\Lab2\JavaDocProj\src\javadocproj\Time.java</td></tr></table>
+<pre>
+<span class="literal">public</span> <span class="literal">class</span> Time {
+    
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> main(String[] <span class="ST0">args</span>) {
+
+        Time time2 = <span class="literal">new</span> Time(<span class="number">555550000</span>);
+        Time time = <span class="literal">new</span> Time();
+
+        System.<span class="ST1">out</span>.println(time.toString());
+        System.<span class="ST1">out</span>.print(<span class="string">&quot;</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+        
+        System.<span class="ST1">out</span>.printf(<span class="string">&quot;</span><span class="string">%d:%d:%d%n%n</span><span class="string">&quot;</span>,
+                time.getHour(),
+                time.getMinute(),
+                time.getSecond());
+
+        System.<span class="ST1">out</span>.println(time2.toString());
+        System.<span class="ST1">out</span>.print(<span class="string">&quot;</span><span class="ST2">\n</span><span class="string">&quot;</span>);
+
+        System.<span class="ST1">out</span>.printf(<span class="string">&quot;</span><span class="string">%d:%d:%d%n%n</span><span class="string">&quot;</span>,
+                time2.getHour(),
+                time2.getMinute(),
+                time2.getSecond());
+
+        time2.setTime(<span class="number">2432423534L</span>);
+        System.<span class="ST1">out</span>.printf(<span class="string">&quot;</span><span class="string">%d:%d:%d%n%n</span><span class="string">&quot;</span>,
+                time2.getHour(),
+                time2.getMinute(),
+                time2.getSecond());
+    }
+
+    <span class="literal">private</span> <span class="literal">int</span> <span class="ST1">hour</span>;
+    <span class="literal">private</span> <span class="literal">int</span> <span class="ST1">minute</span>;
+    <span class="literal">private</span> <span class="literal">int</span> <span class="ST1">second</span>;
+    <span class="literal">private</span> <span class="literal">long</span> <span class="ST1">myTime</span>;
+
+    <span class="literal">public</span> Time(<span class="literal">int</span> <span class="ST0">_hour</span>, <span class="literal">int</span> <span class="ST0">_minute</span>, <span class="literal">int</span> <span class="ST0">_second</span>) {
+        <span class="literal">this</span>.<span class="ST1">hour</span> = <span class="ST0">_hour</span>;
+        <span class="literal">this</span>.<span class="ST1">minute</span> = <span class="ST0">_minute</span>;
+        <span class="literal">this</span>.<span class="ST1">second</span> = <span class="ST0">_second</span>;
+    }
+
+    <span class="literal">public</span> Time() {
+        <span class="ST1">myTime</span> = System.currentTimeMillis();
+    }
+
+    <span class="literal">public</span> Time(<span class="literal">long</span> <span class="ST0">time</span>) {
+        <span class="ST1">myTime</span> = <span class="ST0">time</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">void</span> setTime(<span class="literal">long</span> <span class="ST0">elapsedTime</span>) {
+        <span class="ST1">myTime</span> = <span class="ST0">elapsedTime</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">int</span> getHour() {
+        <span class="literal">return</span> (<span class="literal">int</span>) (<span class="ST1">myTime</span> / (<span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span>)) % <span class="number">24</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">int</span> getMinute() {
+        <span class="literal">return</span> (<span class="literal">int</span>) (<span class="ST1">myTime</span> / (<span class="number">1000</span> * <span class="number">60</span>)) % <span class="number">60</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">int</span> getSecond() {
+        <span class="literal">return</span> (<span class="literal">int</span>) (<span class="ST1">myTime</span> / <span class="number">1000</span>) % <span class="number">60</span>;
+    }
+
+    
+    <span class="ST3">/**</span> 
+<span class="ST3">     * </span><span class="ST4">@param</span> <span class="ST3">o</span>
+<span class="ST3">     * </span><span class="ST4">@return</span> <span class="ST3">boolean</span>
+     <span class="ST3">*/</span>
+    @Override
+    <span class="literal">public</span> <span class="literal">boolean</span> equals(Object <span class="ST0">o</span>) {
+        <span class="literal">if</span> (<span class="ST0">o</span> == <span class="literal">this</span>)
+            <span class="literal">return</span> <span class="literal">true</span>;
+        <span class="literal">if</span> (!(<span class="ST0">o</span> <span class="literal">instanceof</span> Time)) {
+            <span class="literal">return</span> <span class="literal">false</span>;
+        }
+        Time time = (Time) <span class="ST0">o</span>;
+        <span class="literal">return</span> <span class="ST1">hour</span> == time.<span class="ST1">hour</span> &amp;&amp; <span class="ST1">minute</span> == time.<span class="ST1">minute</span> &amp;&amp; <span class="ST1">second</span> == time.<span class="ST1">second</span> &amp;&amp; <span class="ST1">myTime</span> == time.<span class="ST1">myTime</span>;
+    }
+
+    
+    <span class="ST3">/**</span> 
+<span class="ST3">     * </span><span class="ST4">@return</span> <span class="ST3">String</span>
+     <span class="ST3">*/</span>
+    @Override
+    <span class="literal">public</span> String toString() {
+        <span class="literal">return</span> <span class="string">&quot;</span><span class="string">{</span><span class="string">&quot;</span> +
+                <span class="string">&quot;</span><span class="string"> hours=&#39;</span><span class="string">&quot;</span> + getHour() + <span class="string">&quot;</span><span class="string">&#39;</span><span class="string">&quot;</span> +
+                <span class="string">&quot;</span><span class="string">, minutes=&#39;</span><span class="string">&quot;</span> + getMinute() + <span class="string">&quot;</span><span class="string">&#39;</span><span class="string">&quot;</span> +
+                <span class="string">&quot;</span><span class="string">, seconds=&#39;</span><span class="string">&quot;</span> + getSecond() + <span class="string">&quot;</span><span class="string">&#39;</span><span class="string">&quot;</span> +
+                <span class="string">&quot;</span><span class="string">}</span><span class="string">&quot;</span>;
+    }
+
+}
+</pre></body>
+</html>

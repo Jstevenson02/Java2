@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>JavaApplication13.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+pre {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+table {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+.string {color: #e2ce00}
+.ST5 {color: #e2ce00; font-family: Monospaced; font-weight: bold}
+.ST3 {color: #808080}
+.number {color: #eddd3d}
+.ST4 {color: #098a18}
+.literal {color: #f8bb00}
+.ST1 {color: #428bdd; font-family: Monospaced; font-weight: bold}
+.ST0 {color: #428bdd; font-family: Monospaced; font-style: italic}
+.ST2 {color: #ec8e01}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">C:\Users\jacob\Documents\School\Java2\lab\Lab2\JavaApplication13\src\javaapplication13\JavaApplication13.java</td></tr></table>
+<pre>
+<span class="ST0">/*</span>
+<span class="ST0"> * To change this license header, choose License Headers in Project Properties.</span>
+<span class="ST0"> * To change this template file, choose Tools | Templates</span>
+<span class="ST0"> * and open the template in the editor.</span>
+<span class="ST0"> */</span>
+<span class="literal">package</span> inheritance;
+
+<span class="ST0">/**</span>
+<span class="ST0"> *</span>
+<span class="ST0"> * </span><span class="ST1">@author</span> <span class="ST0">ASDV2</span>
+ <span class="ST0">*/</span>
+<span class="literal">public</span> <span class="literal">class</span> Test {
+
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> main(String[] <span class="ST2">args</span>) {
+        Employee <span class="ST3">e</span>;
+
+        Circle circle0 = <span class="literal">new</span> Circle();
+        System.<span class="ST4">out</span>.println(circle0);
+        System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">------------------------</span><span class="string">&quot;</span>);
+
+        Circle circle = <span class="literal">new</span> Circle(<span class="number">1</span>);
+        System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">A circle </span><span class="string">&quot;</span> + circle.toString());
+        System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">The color is </span><span class="string">&quot;</span> + circle.getColor());
+        System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">The radius is </span><span class="string">&quot;</span> + circle.getRadius());
+        System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">The area is </span><span class="string">&quot;</span> + circle.getArea());
+        System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">The diameter is </span><span class="string">&quot;</span> + circle.getDiameter());
+
+        Rectangle rectangle = <span class="literal">new</span> Rectangle(<span class="number">2</span>, <span class="number">4</span>);
+        System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="ST5">\n</span><span class="string">A rectangle </span><span class="string">&quot;</span> + rectangle.toString());
+        System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">The area is </span><span class="string">&quot;</span> + rectangle.getArea());
+        System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">The perimeter is </span><span class="string">&quot;</span> + rectangle.getPerimeter());
+    }
+}
+
+</pre></body>
+</html>

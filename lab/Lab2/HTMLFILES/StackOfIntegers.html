@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>StackOfIntegers.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+pre {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+table {color: #ffffff; background-color: #121e31; font-family: Monospaced}
+.string {color: #e2ce00}
+.ST2 {color: #e2ce00; font-family: Monospaced; font-weight: bold}
+.number {color: #eddd3d}
+.ST0 {color: #098a18}
+.literal {color: #f8bb00}
+.ST1 {color: #ec8e01}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">C:\Users\jacob\Documents\School\Java2\Lab2\JavaDocProj\src\javadocproj\StackOfIntegers.java</td></tr></table>
+<pre>
+<span class="literal">public</span> <span class="literal">class</span> StackOfIntegers {
+    <span class="literal">int</span>[] <span class="ST0">_elements</span>;
+    <span class="literal">int</span> <span class="ST0">_size</span>;
+
+    <span class="literal">public</span> StackOfIntegers() {
+        <span class="ST0">_elements</span> = <span class="literal">new</span> <span class="literal">int</span>[<span class="number">0</span>];
+    }
+
+    <span class="literal">public</span> StackOfIntegers(<span class="literal">int</span> <span class="ST1">size</span>) {
+        <span class="ST0">_elements</span> = <span class="literal">new</span> <span class="literal">int</span>[<span class="ST1">size</span>];
+    }
+
+    <span class="literal">public</span> <span class="literal">int</span> getSize() {
+        <span class="literal">return</span> <span class="ST0">_size</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">boolean</span> isEmpty() {
+        <span class="literal">return</span> <span class="ST0">_size</span> == <span class="number">0</span> ? <span class="literal">true</span> : <span class="literal">false</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">int</span> peek() {
+        <span class="literal">if</span> (isEmpty() == <span class="literal">false</span>) {
+            <span class="literal">return</span> <span class="ST0">_elements</span>[<span class="number">0</span>];
+        }
+        <span class="literal">return</span> -<span class="number">8888</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">int</span> push(<span class="literal">int</span> <span class="ST1">value</span>) {
+        <span class="literal">if</span> (<span class="ST0">_elements</span>.<span class="ST0">length</span> == <span class="ST0">_size</span>) {
+            <span class="literal">return</span> -<span class="number">8888</span>;
+        }
+        <span class="literal">return</span>  <span class="ST0">_elements</span>[<span class="ST0">_size</span>++] = <span class="ST1">value</span>;
+    }
+
+    <span class="literal">public</span> <span class="literal">int</span> pop(<span class="literal">int</span> <span class="ST1">value</span>) {
+        <span class="literal">if</span> (<span class="ST0">_elements</span>.<span class="ST0">length</span> == <span class="number">0</span>) {
+            <span class="literal">return</span> -<span class="number">8888</span>;
+        }
+        <span class="literal">return</span> <span class="ST0">_elements</span>[<span class="ST0">_size</span>--] = <span class="ST1">value</span>;
+    }
+
+    @Override
+    <span class="literal">public</span> String toString() {
+        String s = <span class="string">&quot;&quot;</span>;
+
+        <span class="literal">for</span> (<span class="literal">int</span> i = <span class="ST0">_size</span> - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) {
+            s += <span class="ST0">_elements</span>[i] + <span class="string">&quot;</span><span class="ST2">\n</span><span class="string">&quot;</span>;
+        }
+        <span class="literal">return</span> s;
+    }
+
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> main(String[] <span class="ST1">args</span>) {
+        StackOfIntegers SOI = <span class="literal">new</span> StackOfIntegers(<span class="number">5</span>);
+        SOI.push(<span class="number">10</span>);
+        SOI.push(<span class="number">20</span>);
+        SOI.push(<span class="number">30</span>);
+        SOI.push(<span class="number">40</span>);
+        SOI.push(<span class="number">50</span>);
+        System.<span class="ST0">out</span>.println(SOI);
+    }
+}
+</pre></body>
+</html>
