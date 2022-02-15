@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class MainMethod {
 	/** Main method */
 	public static void main(String[] args) {
@@ -10,8 +12,7 @@ public class MainMethod {
 		MyString str2 = new MyString(test2);
 
 		// MyString String Methods
-		System.out.println("\n");
-		System.out.println("_________MyString String Methods_________");
+		System.out.println("\n_________MyString String Methods_________\n");
 
 		// Display character at index 1 of MyString object 1
 		System.out.println("\nCharacter at index 1 of MyString object 1: "
@@ -48,31 +49,27 @@ public class MainMethod {
 		}
 
 		// MyString Split Method
-		System.out.println("\n");
-		System.out.println("_________MyString Split Method_________");
-		System.out.println("\n");
+		System.out.println("\n_________MyString Split Method_________\n");
 
 		String[] temp1 = MyString.split("I Am A StringSplitBy A Delimiter Can You Tell?", "Split");
-        for (String s : temp1) {
-            System.out.print(" " + s);
-        }
+		for (String s : temp1) {
+			System.out.print(" " + s);
+		}
 
 		System.out.println("\n");
 
-        String[] temp2 = MyString.split("I#Am#A#String#Split#By#Delimiters#Can#You#Tell?", "#");
-        for (String s : temp2) {
-            System.out.print(" " + s);
-        }
+		String[] temp2 = MyString.split("I#Am#A#String#Split#By#Delimiters#Can#You#Tell?", "#");
+		for (String s : temp2) {
+			System.out.print(" " + s);
+		}
 
-		// MyString Builder 
-		System.out.println("\n");
-		System.out.println("_________MyStringBuilder Method_________");
-		System.out.println("\n");
+		// MyString Builder
+		System.out.println("\n\n_________MyStringBuilder Method_________\n");
 
 		MyStringBuilder str1 = new MyStringBuilder("IAMAPPENDEDTO");
 
-		System.out.println("\nAppend the string \" MyStringBuilder\" to string: " + 
-			str1.append(new MyStringBuilder(" MyStringBuilder")));
+		System.out.println("\nAppend the string \" MyStringBuilder\" to string: " +
+				str1.append(new MyStringBuilder(" MyStringBuilder")));
 
 		// Display string with the integer 101 append to it
 		System.out.println("\nAppend integer 101 to the string: " + str1.append(101));
@@ -87,10 +84,30 @@ public class MainMethod {
 		System.out.println("\nString to lower case: " + str1.toLowerCase());
 
 		// Display the substring of str1 from index 1 to 3
-		System.out.println("\nSubstring of string from index 1 to 3: " + 
-			str1.substring(1, 3));
+		System.out.println("\nSubstring of string from index 1 to 3: " +
+				str1.substring(1, 3));
 
 		// Return the string
 		System.out.println("\nDisplay string: " + str1.toString());
+
+		// MyString Builder
+		System.out.println("\n_________MyStack Method_________\n");
+
+		// Create a Scanner
+		Scanner input = new Scanner(System.in);
+
+		// Create a MyStack
+		MyStackOverrideArrayList stack = new MyStackOverrideArrayList();
+
+		// Prompt the user to enter five strings
+		System.out.print("Enter five strings: ");
+		for (int i = 0; i < 5; i++) {
+			stack.push(input.next());
+		}
+
+		// Display in reverse order
+		System.out.println(stack.toString());
+
+		input.close();
 	}
 }
