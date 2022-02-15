@@ -57,7 +57,7 @@ public class MyString {
 	}
 
 	/** return i as a MyString object */
-	public static MyString valueOf(int i) {
+	public MyString valueOf(int i) {
 		// Count the number of digits in i
 		int length = 0; 
 		int n = i;
